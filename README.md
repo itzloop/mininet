@@ -259,4 +259,155 @@ rtt min/avg/max/mdev = 3001.181/3009.091/3030.704/12.551 ms, pipe 3
 
 As you can see with higher delays we will have lower bandwidth and higher RTT. Let's use delay of `1ms` as a reference point. Now if we had a `50x (1ms * 50 = 50ms)` delay, our `RTT` would be `50x` as well.
 
+Now fixed delay of `100ms` and variable bandwidth
+- bandwidth of `1Mbit/s`
 
+```bash
+$ sudo mn --topo minimal --link tc,bw=1,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['888 Kbits/sec', '1.25 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3000ms
+rtt min/avg/max/mdev = 402.160/412.736/443.566/17.819 ms
+```
+
+- bandwidth of `5Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=5,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['3.95 Mbits/sec', '5.29 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 401.735/411.109/438.408/15.768 ms
+```
+
+- bandwidth of `10Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=10,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['7.20 Mbits/sec', '9.36 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 402.050/410.821/433.278/13.026 ms
+```
+
+- bandwidth of `25Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=25,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['14.5 Mbits/sec', '16.5 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 400.787/410.053/435.986/14.980 ms
+```
+
+- bandwidth of `50Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=50,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['16.9 Mbits/sec', '17.6 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 401.677/411.533/438.658/15.676 ms
+```
+- bandwidth of `100Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=100,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['15.9 Mbits/sec', '16.1 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3001ms
+rtt min/avg/max/mdev = 401.824/409.590/431.902/12.885 ms
+```
+
+- bandwidth of `200Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=200,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['15.9 Mbits/sec', '16.1 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3001ms
+rtt min/avg/max/mdev = 401.716/409.217/430.548/12.336 ms
+```
+
+- bandwidth of `350Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=350,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['16.5 Mbits/sec', '16.8 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 402.492/411.008/431.400/11.828 ms
+```
+
+- bandwidth of `500Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=500,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['16.1 Mbits/sec', '16.2 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 402.147/406.026/417.567/6.693 ms
+```
+
+- bandwidth of `750Mbit/s`
+
+```bash
+$ sudo mn --topo minimal --link tc,bw=750,delay=100ms
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h2 
+*** Results: ['16.1 Mbits/sec', '16.2 Mbits/sec']
+mininet> h1 ping -qc 4 h2
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+--- 10.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 401.272/410.083/434.787/14.289 ms
+```
+
+
+<p align="center">
+  <img alt="Avg. RTT(ms) vs. Delay(ms)" src="./assets/Avg. RTT(ms) vs. Bandwidth(Mbit_s).png" />
+</p>
+
+Changing the bandwidth doesn't affect `RTT` when we have introduced fixed delay in our netwrok.
+
+<p align="center">
+  <img alt="Bandwidth(Mbit_s) between h1 and h2 vs. Bandwidth(Mbit_s)" src="./assets/Bandwidth(Mbit_s) between h1 and h2 vs. Bandwidth(Mbit_s).png" />
+</p>
+
+After a certain point increasing bandwidth would not change the bandwidth between `h1` and `h2` because we have a delay of `100ms`.
