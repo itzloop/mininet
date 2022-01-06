@@ -31,7 +31,7 @@ c0
 - `single` toplogy using 2 hosts
 
 ```bash
-$ sudo mn --topo signle,2
+$ sudo mn --topo single,2
 ```
 
 `net` command's output
@@ -82,7 +82,7 @@ This is the `tree` topology and can be created as follows:
 ```bash
 $ sudo mn --topo tree,2,3
 # or you specify what each number means like below
-$ sudo mn --topo,depth=2,fanout=3
+$ sudo mn --topo tree,depth=2,fanout=3
 ```
 
 `net` command's output:
